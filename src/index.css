@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+code, kbd, samp, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar for Disaster Command Console */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Radar pulse animation for critical SOS markers */
+@keyframes emergency-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.animate-emergency-ping {
+  animation: emergency-pulse 1.8s infinite;
+}
+
+/* Signal sweep effect for SignalMesh nodes */
+@keyframes signal-wave {
+  0% {
+    stroke-dashoffset: 40;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.mesh-flow-active {
+  stroke-dasharray: 6 4;
+  animation: signal-wave 1.2s linear infinite;
+}
+
+.mesh-flow-sms {
+  stroke-dasharray: 4 6;
+  animation: signal-wave 2s linear infinite;
+}
+
+.mesh-flow-relay {
+  stroke-dasharray: 3 8;
+  animation: signal-wave 2.8s linear infinite;
+}
+
+/* Leaflet dark theme override for disaster map */
+.leaflet-container {
+  background: #090d16 !important;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 8px !important;
+}
+
+.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+}
